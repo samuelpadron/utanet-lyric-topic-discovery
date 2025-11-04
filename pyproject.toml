@@ -1,0 +1,21 @@
+[project]
+name = "utanet-citypop-topic-discovery"
+version = "0.1.0"
+description = "A lyric topic discovery  tool for city pop songs in Uta-Net"
+authors = [
+    { name = "Samuel Padron" }
+]
+requires-python = ">=3.9"
+
+dependencies = [
+    "requests",
+    "beautifulsoup4",
+    "ginza",
+    "spacy",
+    "pandas",
+    "numpy"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
