@@ -33,6 +33,12 @@ def scrape_songs(song_ids):
             print(f"Saved {sid} lyrics")
         time.sleep(1)
 
+
+def get_song_ids():
+    pass    
+
+
 if __name__ == "__main__":
-    song_ids = ["52857"]
+    # song_ids = ["52857"]
+    song_ids = get_song_ids()
     scrape_songs(song_ids)
