@@ -1,0 +1,9 @@
+beautifulsoup4
+requests
+ginza
+ja-ginza
+spacy
+gensim
+pandas
+numpy
+matplotlib
