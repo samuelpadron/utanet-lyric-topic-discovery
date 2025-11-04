@@ -17,11 +17,12 @@ class SongScraper:
 
         soup = BeautifulSoup(html, "html.parser")
         lyrics = soup.find("div", {"id": "kashi-area"})
+        lyrics = lyrics.text.replace('\n','').replace('\u3000','')
         artist = soup.find("span", {"class": "ms-2 ms-md-3 artist-name text-break d-block"})
         title = soup.find("span", {"class": "ms-2 ms-md-3 text-break d-block"})
 
         if lyrics and artist and title:
-            return f"{title.text},{artist.text},{lyrics.text.strip()}"
+            return f"{title.text},{artist.text},{lyrics.strip()}"
         return None
 
     def scrape_songs(self, song_ids):
