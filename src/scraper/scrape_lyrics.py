@@ -22,7 +22,7 @@ class SongScraper:
         title = soup.find("span", {"class": "ms-2 ms-md-3 text-break d-block"})
 
         if lyrics and artist and title:
-            return f"{title.text},{artist.text},{lyrics.strip()}"
+            return f"{title.text};{artist.text};{lyrics.strip()}"
         return None
 
     def scrape_songs(self, song_ids):
