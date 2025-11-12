@@ -30,4 +30,3 @@ class SongScraper:
             lyrics = self.get_song_data(sid)
             if lyrics:
                 save_text(f"{self.output_dir}/utanet.csv", lyrics)
-                print(f"Saved {sid}")
