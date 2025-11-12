@@ -8,3 +8,5 @@ pandas
 numpy
 matplotlib
 scikit-learn
+umap-learn
+plotly
