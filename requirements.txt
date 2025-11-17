@@ -9,4 +9,5 @@ numpy
 matplotlib
 scikit-learn
 umap-learn
+hdbscan
 plotly
