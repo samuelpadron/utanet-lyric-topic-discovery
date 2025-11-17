@@ -1,33 +1,44 @@
+import hdbscan
 import umap.umap_ as umap
+import numpy as np
 import matplotlib.pyplot as plt
 import plotly.express as px
 from sklearn.preprocessing import normalize
-from sklearn.cluster import KMeans, HDBSCAN
 from sklearn.manifold import TSNE
 
 
 def cluster(embeddings):
-    reducer = umap.UMAP(n_neighbors=10, n_components=10, metric='cosine')
-    embeddings = reducer.fit_transform(embeddings)
-    model = HDBSCAN(min_cluster_size=3, min_samples=2, metric='cosine', cluster_selection_epsilon=0.05)
-    labels = model.fit_predict(embeddings)
-    return labels
+    X_norm = normalize(embeddings)
+    reducer = umap.UMAP(n_neighbors=10, n_components=50, metric='cosine')
+    X_reduced = reducer.fit_transform(X_norm)
+    model = hdbscan.HDBSCAN(min_cluster_size=3, min_samples=2, metric='euclidean', cluster_selection_epsilon=0.05)
+    labels = model.fit_predict(X_reduced)
+    probs = model.probabilities_
+    return labels, probs
 
 
-def visualize(embeddings, labels, df):
+def visualize(embeddings, labels, probs, df):
 
     umap_vis = umap.UMAP(
     n_neighbors=10,
     n_components=2,
-    metric='cosine'
+    metric='euclidean'
     ) 
-    X_vis = umap_vis.fit_transform(embeddings) # convert from 10D -> 2D
+
+    embeddings = umap_vis.fit_transform(embeddings) # convert from 10D -> 2D
+
+    labels_str = np.array(labels, dtype=str)
+    labels_str[labels == -1] = "Noise"
 
     fig = px.scatter(
         x=embeddings[:, 0],
         y=embeddings[:, 1],
-        color=labels.astype(str),
+        color=labels_str,
         hover_name=df["title"],
+        hover_data={
+            "artist": df["artist"],
+            "membership_prob": np.round(probs, 3),
+        },
         title="City Pop Lyrics Clusters (GiNZA Embeddings + HDBSCAN)"
     )
     fig.update_traces(marker=dict(size=6, opacity=0.7))
