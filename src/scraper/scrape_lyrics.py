@@ -26,6 +26,7 @@ class SongScraper:
         return None
 
     def scrape_songs(self, song_ids):
+        save_text(f"{self.output_dir}/utanet.csv", "title;artist;lyrics")
         for sid in song_ids:
             lyrics = self.get_song_data(sid)
             if lyrics:
