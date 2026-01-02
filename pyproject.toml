@@ -13,7 +13,8 @@ dependencies = [
     "ginza",
     "spacy",
     "pandas",
-    "numpy"
+    "numpy",
+    "hdbscan"
 ]
 
 [build-system]
