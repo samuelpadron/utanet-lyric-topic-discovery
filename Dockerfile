@@ -10,6 +10,7 @@ RUN pip install --upgrade pip
 COPY  requirements.txt /app/requirements.txt
 WORKDIR /app
 RUN pip install --no-cache-dir -r /app/requirements.txt
+COPY . .
 
 # Default command
 CMD ["bash"]
