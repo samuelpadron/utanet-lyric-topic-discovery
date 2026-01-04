@@ -1,6 +1,6 @@
 import pandas as pd
 from bs4 import BeautifulSoup
-from scraper.utils import safe_request, save_text
+from utils import safe_request, save_text
 
 BASE_URL = "https://www.uta-net.com/global/en/lyric/"
 OUTPUT_DIR = "data/raw"

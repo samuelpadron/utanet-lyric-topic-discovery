@@ -4,7 +4,7 @@ import requests
 
 def safe_request(url, delay=1):
     """Request a URL safely with a delay to avoid rate-limiting."""
-    r = requests.get(url)
+    r = requests.get(url, timeout=15)
     time.sleep(delay)
     if r.status_code != 200:
         print(f"Failed to fetch {url} ({r.status_code})")

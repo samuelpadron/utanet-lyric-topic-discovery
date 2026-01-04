@@ -1,5 +1,5 @@
-from .scrape_lyrics import SongScraper
-from .scrape_artists import get_artist_ids, get_artist_song_ids
+from scrape_lyrics import SongScraper
+from scrape_artists import get_artist_ids, get_artist_song_ids
 
 if __name__ == "__main__":
     artist_ids = get_artist_ids()
