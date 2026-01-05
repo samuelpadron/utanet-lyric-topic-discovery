@@ -18,12 +18,17 @@ project-root/
 ├── src/
 │   └── raw/
 |       └── artists.csv			# CSV file with artists and utanet ID
-|       └── utanet.py			# CSV file with song lyrics
+|       └── utanet.csv			# CSV file with song lyrics
 │   └── processed/              # Directory for HTML cluster visualization
 ├── requirements.txt
 ├── Dockerfile
 └── README.md
 ```
 
+## Running
 
+1. Build the Docker container or start up a new virtual environment and install `requirements.txt` through `pip install -r requirements.txt`
+
+2. Run `main_cluster.py` to get clustering results. The visualization page can be seen under` data/processed/interactive_cluster.html`. 
+3. If you want to add more artists or change the number of songs scraped per artist, you can look at `src/scraper/scrape_artists.py` or run `main_scraper.py` to generate a new dataset in `utanet.csv`.
 
