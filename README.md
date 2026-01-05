@@ -12,13 +12,14 @@ project-root/
 |       └── scrape_lyrics.py	# Get lyrics and create dataset
 |       └── utils.py			# Utilities for file handling
 │   └── clustering/
-|       └── main_cluster.py      # Entrypoint script for clustering
-|       └── cluster.py			 # Clustering with HDBSCAN and UMAP
-|       └── preprocessing.py	 # Tokenizer and embeddings
+|       └── main_cluster.py     # Entrypoint script for clustering
+|       └── cluster.py			# Clustering with HDBSCAN and UMAP
+|       └── preprocessing.py	# Tokenizer and embeddings
 ├── src/
 │   └── raw/
-|       └── artists.csv			 # CSV file with artists and utanet ID
-|       └── utanet.py			 # CSV file with song lyrics
+|       └── artists.csv			# CSV file with artists and utanet ID
+|       └── utanet.py			# CSV file with song lyrics
+│   └── processed/              # Directory for HTML cluster visualization
 ├── requirements.txt
 ├── Dockerfile
 └── README.md
