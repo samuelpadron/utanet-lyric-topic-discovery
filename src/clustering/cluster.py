@@ -13,7 +13,7 @@ def cluster(embeddings):
     X_norm = normalize(embeddings)
     reducer = umap.UMAP(n_neighbors=5, n_components=80, metric='cosine')
     X_reduced = reducer.fit_transform(X_norm)
-    model = hdbscan.HDBSCAN(min_cluster_size=6, min_samples=5, metric='euclidean', cluster_selection_epsilon=0.05)
+    model = hdbscan.HDBSCAN(min_cluster_size=7, min_samples=5, metric='euclidean', cluster_selection_epsilon=0.05)
     labels = model.fit_predict(X_reduced)
     probs = model.probabilities_
     return labels, probs, X_reduced
